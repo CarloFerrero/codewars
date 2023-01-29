@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ATM Pin</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <div id="main">
+      <div class="container">
+        <div class="card mb-3">
+          <div class="card-content">
+            <div class="content is-flex is-justify-content-center">
+              <p id="value"></p>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <div class="content is-flex" style="gap: 10px">
+              <div id="atm_numbers">
+                <button id="1" class="num button is-light">1</button>
+                <button id="2" class="num button is-light">2</button>
+                <button id="3" class="num button is-light">3</button>
+                <button id="4" class="num button is-light">4</button>
+                <button id="5" class="num button is-light">5</button>
+                <button id="6" class="num button is-light">6</button>
+                <button id="7" class="num button is-light">7</button>
+                <button id="8" class="num button is-light">8</button>
+                <button id="9" class="num button is-light">9</button>
+                <div></div>
+                <button id="0" class="num button is-light">0</button>
+                <div></div>
+              </div>
+              <div id="atm_actions">
+                <button id="clear" class="button is-warning">clear</button>
+                <button id="cancel" class="button is-danger">cancel</button>
+                <button id="enter" class="button is-success">enter</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

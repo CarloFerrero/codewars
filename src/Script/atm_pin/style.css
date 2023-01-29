@@ -1,0 +1,38 @@
+#main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+}
+#atm_numbers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+#atm_actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#digit_num {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0px 0px 20px rgba(220, 220, 220, 0.637);
+}
+.digit {
+  max-width: 15px;
+  opacity: 0.7;
+}
