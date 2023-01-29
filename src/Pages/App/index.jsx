@@ -17,6 +17,7 @@ const Homepage = () => {
           <Card
             title={PROJECTS[0].title}
             description={PROJECTS[0].description}
+            theme={PROJECTS[0].theme}
           />
         </Link>
         <Grid
@@ -35,7 +36,11 @@ const Homepage = () => {
               return (
                 <GridItem>
                   <Link to={item.path}>
-                    <Card title={item.title} description={item.description} />
+                    <Card
+                      title={item.title}
+                      description={item.description}
+                      theme={item.theme}
+                    />
                   </Link>
                 </GridItem>
               );

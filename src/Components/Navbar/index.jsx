@@ -1,15 +1,11 @@
 import {
   Box,
-  Button,
-  ButtonGroup,
-  Container,
-  Flex,
   HStack,
   IconButton,
   useBreakpointValue,
+  Text,
 } from "@chakra-ui/react";
-import { FiMenu } from "react-icons/fi";
-import { Logo } from "../../Logo";
+import { FiScissors, FiMoon, FiMenu } from "react-icons/fi";
 
 const Navbar = () => {
   const isDesktop = useBreakpointValue({
@@ -31,22 +27,23 @@ const Navbar = () => {
         >
           <HStack spacing="10" justify="space-between">
             <Box>
-              <Logo />
+              <Text fontWeight="bold" fontSize="26px">
+                CarloQuelloAlto_
+              </Text>
             </Box>
             {isDesktop ? (
-              <Flex justify="space-between" flex="1">
-                <ButtonGroup variant="link" spacing="8">
-                  {["Product", "Pricing", "Resources", "Support"].map(
-                    (item) => (
-                      <Button key={item}>{item}</Button>
-                    )
-                  )}
-                </ButtonGroup>
-                <HStack spacing="3">
-                  <Button variant="ghost">Sign in</Button>
-                  <Button variant="solid">Sign up</Button>
-                </HStack>
-              </Flex>
+              <HStack spacing="3">
+                <IconButton
+                  variant="solid"
+                  icon={<FiMoon fontSize="1.25rem" />}
+                  aria-label="Open Menu"
+                />
+                <IconButton
+                  variant="solid"
+                  icon={<FiScissors fontSize="1.25rem" />}
+                  aria-label="Open Menu"
+                />
+              </HStack>
             ) : (
               <IconButton
                 variant="ghost"
