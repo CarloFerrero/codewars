@@ -30,20 +30,18 @@ const Homepage = () => {
           gap="20px"
           mt="20px"
         >
-          {PROJECTS.map((item, index) => {
-            if (index === 0) return;
-            else
-              return (
-                <GridItem>
-                  <Link to={item.path}>
-                    <Card
-                      title={item.title}
-                      description={item.description}
-                      theme={item.theme}
-                    />
-                  </Link>
-                </GridItem>
-              );
+          {PROJECTS.filter((_, index) => index !== 0).map((item) => {
+            return (
+              <GridItem>
+                <Link to={item.path}>
+                  <Card
+                    title={item.title}
+                    description={item.description}
+                    theme={item.theme}
+                  />
+                </Link>
+              </GridItem>
+            );
           })}
         </Grid>
       </Container>
