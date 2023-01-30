@@ -1,52 +1,23 @@
-import { Box, Container, Grid, GridItem } from "@chakra-ui/layout";
 import React from "react";
-import Card from "../../Components/Card";
-import { PROJECTS } from "../../PROJECTS";
-import Hero from "../../Components/Hero";
-import { Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import Homepage from "../Home";
+import RomanConverter from "../RomanConverter";
+import Navbar from "../../Components/Navbar";
+import Footer from "../../Components/Footer";
+import RedirectBanner from "../RedirectBanner";
 
-const Homepage = () => {
+const App = () => {
   return (
-    <Box>
-      <Hero
-        title="This is a website where i store all of my
-          small project, mostly logic, and javascript challenges."
-      />
-      <Container maxW="1200px">
-        <Link to={PROJECTS[0].path}>
-          <Card
-            title={PROJECTS[0].title}
-            description={PROJECTS[0].description}
-            theme={PROJECTS[0].theme}
-          />
-        </Link>
-        <Grid
-          gridTemplateColumns={{
-            base: "1fr",
-            sm: "1fr",
-            md: "1fr 1fr",
-            lg: "1fr 1fr 1fr",
-          }}
-          gap="20px"
-          mt="20px"
-        >
-          {PROJECTS.filter((_, index) => index !== 0).map((item) => {
-            return (
-              <GridItem>
-                <Link to={item.path}>
-                  <Card
-                    title={item.title}
-                    description={item.description}
-                    theme={item.theme}
-                  />
-                </Link>
-              </GridItem>
-            );
-          })}
-        </Grid>
-      </Container>
-    </Box>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/roman-numerals-decoder" element={<RomanConverter />} />
+        <Route path="/redirect-banner" element={<RedirectBanner />} />
+      </Routes>
+      <Footer />
+    </>
   );
 };
 
-export default Homepage;
+export default App;

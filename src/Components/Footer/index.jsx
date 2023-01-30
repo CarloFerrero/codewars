@@ -1,5 +1,6 @@
 import { ButtonGroup, Box, IconButton, Stack, Text } from "@chakra-ui/react";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => (
   <Box
@@ -17,8 +18,9 @@ const Footer = () => (
     <Stack spacing={{ base: "4", md: "5" }}>
       <Stack justify="space-between" direction="row" align="center">
         <Text fontWeight="bold" fontSize="26px">
-          CarloQuelloAlto_
+          <Link to="/">CarloQuelloAlto_</Link>
         </Text>
+
         <ButtonGroup variant="ghost">
           <IconButton
             as="a"

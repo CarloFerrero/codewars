@@ -6,6 +6,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { FiScissors, FiMoon, FiMenu } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const isDesktop = useBreakpointValue({
@@ -28,7 +29,7 @@ const Navbar = () => {
           <HStack spacing="10" justify="space-between">
             <Box>
               <Text fontWeight="bold" fontSize="26px">
-                CarloQuelloAlto_
+                <Link to="/">CarloQuelloAlto_</Link>
               </Text>
             </Box>
             {isDesktop ? (

@@ -1,29 +1,37 @@
 import React, { useState } from "react";
-import {
-  Button,
-  Container,
-  Heading,
-  Input,
-  Flex,
-  Text,
-  Box,
-} from "@chakra-ui/react";
-
-import { PROJECTS } from "../../PROJECTS";
+import { Container, Heading, Input, Flex, Text, Box } from "@chakra-ui/react";
 import { useLocation } from "react-router";
 import { romanConverter } from "../../Script/roman_converter";
-import RomanConverterFunction from "./RomanConverterFunction";
+import ModalComponent from "../../Components/Modal";
+import CodePreview from "../../Components/CodePreview";
+import { getCurrentProject } from "../../utils/currentProjext";
+
+const codesnippet = `const romanConverter = (roman) => {
+  const ROMAN = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
+  let result = 0;
+  for (let i = 0; i < roman.length; i++) {
+    const current = ROMAN[roman[i]];
+    const next = ROMAN[roman[i + 1]];
+    if (current < next) {
+      result += next - current;
+      i++;
+    } else {
+      result += current;
+    }
+  }
+  return result;
+};`;
 
 const RomanConverter = () => {
   const [val, setVal] = useState("");
+  const [res, setRes] = useState();
   let location = useLocation();
-  let currentProject = PROJECTS.find(
-    (project) => project.path === location.pathname
-  );
+  const currentProject = getCurrentProject(location);
 
   const handleSubmit = (e) => {
     let res = romanConverter(val);
-    alert(res);
+    setRes(res);
+
     e.preventDefault();
   };
 
@@ -40,11 +48,14 @@ const RomanConverter = () => {
             type="text"
             onChange={(e) => setVal(e.target.value)}
           />
-          <Button type="submit" backgroundColor="black" color="white">
-            Convert
-          </Button>
+          <ModalComponent
+            header={`The Roman number ${val}, is equal to:`}
+            body={res}
+            action="close"
+            openButton="Convert"
+          />
         </Flex>
-        <RomanConverterFunction />
+        <CodePreview code={codesnippet} language="Javascript" />
       </form>
     </Container>
   );
