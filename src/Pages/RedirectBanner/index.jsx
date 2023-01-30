@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import { Container, Box, Heading, Text } from "@chakra-ui/react";
 import React from "react";
 import CodePreview from "../../Components/CodePreview";
@@ -6,6 +7,7 @@ import { getCurrentProject } from "../../utils/currentProjext";
 
 const codesnippet = `var url = window.location.href;
 var timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+// eslint-disable-next-line no-useless-escape
 var webzone = url.match(/accessiway\.(com|de|at|fr)(\/it)?(\/.*)?$/);
 
 var lang = {
