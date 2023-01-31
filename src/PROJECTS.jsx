@@ -9,11 +9,11 @@ export const PROJECTS = [
   },
   {
     id: 1,
-    path: "/atm-pin",
-    title: "ATM Pin",
+    path: "/decode-morse",
+    title: "Decode morse",
     theme: "second",
     description:
-      "Create a function that takes a Roman numeral as its argument and returns its value as a numeric decimal integer. You don't need tovalidate the form of the Roman numeral.",
+      "write a simple Morse code decoder. While the Morse code is now mostly superseded by voice and digital data communication channels, it still has its use in some applications around the world.",
   },
   {
     id: 2,
