@@ -4,20 +4,24 @@ import Card from "../../Components/Card";
 import { PROJECTS } from "../../PROJECTS";
 import Hero from "../../Components/Hero";
 import { Link } from "react-router-dom";
+import Filter from "../../Components/Filter/Filter";
 
 const Homepage = () => {
   return (
     <Box>
       <Hero
         title="This is a website where i store all of my
-          small project, mostly logic, and javascript challenges."
+          small project, mostly logic, and coding challenges."
       />
+      <Filter />
       <Container maxW="1200px">
         <Link to={PROJECTS[0].path}>
           <Card
             title={PROJECTS[0].title}
             description={PROJECTS[0].description}
             theme={PROJECTS[0].theme}
+            link={PROJECTS[0].path}
+            tags={PROJECTS[0].tags}
           />
         </Link>
         <Grid
@@ -27,6 +31,7 @@ const Homepage = () => {
             md: "1fr 1fr",
             lg: "1fr 1fr 1fr",
           }}
+          gridTemplateRows="auto"
           gap="20px"
           mt="20px"
         >
@@ -38,6 +43,8 @@ const Homepage = () => {
                     title={item.title}
                     description={item.description}
                     theme={item.theme}
+                    link={item.path}
+                    tags={item.tags}
                   />
                 </Link>
               </GridItem>

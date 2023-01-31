@@ -18,8 +18,8 @@ const Hero = ({ title }) => {
       display="flex"
       alignItems="center"
     >
-      <Container maxW="1200px">
-        <Heading as="h2" m="0" fontWeight="light">
+      <Container maxW="900px">
+        <Heading as="h2" m="0" fontWeight="light" textAlign="center">
           {title}
         </Heading>
       </Container>

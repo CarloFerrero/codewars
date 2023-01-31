@@ -10,7 +10,7 @@ import DecodeMorse from "../DecodeMorse";
 
 const App = () => {
   return (
-    <>
+    <div style={{ backgroundColor: "#fafafa " }}>
       <Navbar />
       <Routes>
         <Route path="/" element={<Homepage />} />
@@ -20,7 +20,7 @@ const App = () => {
         <Route path="/flea" element={<Flea />} />
       </Routes>
       <Footer />
-    </>
+    </div>
   );
 };
 

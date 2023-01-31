@@ -1,7 +1,14 @@
 import React from "react";
-import { Box, Text, Heading } from "@chakra-ui/react";
+import { Box, Text, Heading, Tag, Button, Flex } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+import { BsArrowRightShort } from "react-icons/bs";
+import { tags_ } from "../../utils/tags";
 
-const GRADIENT = {
+const THEME = {
+  base: {
+    backgroundColor: "#fff",
+    color: "#000",
+  },
   first: {
     backgroundColor: "#4158D0",
     backgroundImage:
@@ -21,7 +28,7 @@ const GRADIENT = {
   },
 };
 
-const Card = ({ title, description, theme }) => {
+const Card = ({ title, description, theme, link, tags }) => {
   return (
     <Box
       py={{
@@ -33,7 +40,7 @@ const Card = ({ title, description, theme }) => {
         lg: "6",
       }}
       border="1px solid"
-      borderColor="#0d0d0d"
+      borderColor="var(--chakra-colors-chakra-border-color)"
       w="100%"
       borderRadius="16px"
       height="300px"
@@ -41,14 +48,46 @@ const Card = ({ title, description, theme }) => {
       alignItems="flex-start"
       justifyContent="end"
       flexDirection="column"
-      style={GRADIENT[theme]}
+      style={THEME[theme]}
     >
-      <Heading as="h3" fontSize="25px" fontWeight="regular" color="#fff">
+      <Heading
+        as="h3"
+        fontSize="25px"
+        fontWeight="regular"
+        style={THEME[theme]}
+      >
         {title}
       </Heading>
-      <Text as="p" fontSize="16px" maxW="500px" mt="10px" color="#fff">
-        {description}
+      <Flex gap="5px">
+        {tags.map((tag) => {
+          return (
+            <Tag size="sm" mt="10px" colorScheme={tags_[tag].color}>
+              {tags_[tag].name}
+            </Tag>
+          );
+        })}
+      </Flex>
+      <Text
+        as="p"
+        fontSize="16px"
+        maxW="500px"
+        mt="10px"
+        style={THEME[theme]}
+        opacity={0.5}
+      >
+        {description.substring(0, 100) + `...`}
       </Text>
+      <Link to={link}>
+        <Button
+          mt="10px"
+          alignItems="center"
+          rightIcon={<BsArrowRightShort size={20} />}
+          style={THEME[theme]}
+          variant="link"
+        >
+          Learn more
+        </Button>
+      </Link>
     </Box>
   );
 };

@@ -5,7 +5,7 @@ import {
   useBreakpointValue,
   Text,
 } from "@chakra-ui/react";
-import { FiScissors, FiMoon, FiMenu } from "react-icons/fi";
+import { FiMoon, FiMenu } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -14,7 +14,7 @@ const Navbar = () => {
     lg: true,
   });
   return (
-    <Box as="section">
+    <Box as="section" backgroundColor="#fff">
       <Box as="nav" bg="bg-surface" boxShadow="sm">
         <Box
           py={{
@@ -35,13 +35,8 @@ const Navbar = () => {
             {isDesktop ? (
               <HStack spacing="3">
                 <IconButton
-                  variant="solid"
+                  variant="ghost"
                   icon={<FiMoon fontSize="1.25rem" />}
-                  aria-label="Open Menu"
-                />
-                <IconButton
-                  variant="solid"
-                  icon={<FiScissors fontSize="1.25rem" />}
                   aria-label="Open Menu"
                 />
               </HStack>
