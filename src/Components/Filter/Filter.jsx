@@ -1,19 +1,9 @@
 import React from "react";
-import {
-  HStack,
-  Tag,
-  Container,
-  Select,
-  Box,
-  Flex,
-  Button,
-} from "@chakra-ui/react";
+import { HStack, Container, Select, Box, Button } from "@chakra-ui/react";
 import { RepeatIcon } from "@chakra-ui/icons";
-import { tags_ } from "../../utils/tags";
 import SearcBar from "../SearchBar";
 
 const Filter = (props) => {
-  let tagKeys = Object.keys(tags_);
   const callBackFunc = (option) => {
     console.log(option);
   };
