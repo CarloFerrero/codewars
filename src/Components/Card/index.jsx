@@ -4,27 +4,6 @@ import { Link } from "react-router-dom";
 import { BsArrowRightShort } from "react-icons/bs";
 import { tags_ } from "../../utils/tags";
 
-const THEME = {
-  base: {},
-  first: {
-    backgroundColor: "#4158D0",
-    backgroundImage:
-      "linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)",
-  },
-  second: {
-    backgroundColor: "#0093E9",
-    backgroundImage: "linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)",
-  },
-  third: {
-    backgroundColor: "#8EC5FC",
-    backgroundImage: "linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%)",
-  },
-  fourth: {
-    backgroundColor: "#8EC5FC",
-    backgroundImage: "linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%)",
-  },
-};
-
 const Card = ({ title, description, theme, link, tags }) => {
   return (
     <Box
