@@ -1,11 +1,4 @@
-import {
-  Box,
-  HStack,
-  IconButton,
-  useBreakpointValue,
-  Text,
-} from "@chakra-ui/react";
-import { FiMenu } from "react-icons/fi";
+import { Box, HStack, useBreakpointValue, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import ColorMode from "../ColorMode";
 
