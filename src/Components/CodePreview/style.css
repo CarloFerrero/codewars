@@ -3,3 +3,6 @@ pre.prism-code.language-jsx {
   padding: 20px;
   overflow-x: scroll;
 }
+pre.prism-code.language-jsx {
+  background: transparent !important;
+}

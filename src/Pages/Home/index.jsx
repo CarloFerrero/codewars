@@ -31,13 +31,12 @@ const Homepage = () => {
       <Filter setSearch={setSearch} setTag={setTag} />
       <Container maxW="1200px">
         <Grid
-          templateRows="repeat(3, 1fr)"
-          templateColumns="repeat(3, 1fr)"
+          templateColumns={{ sm: "repeat(1, 1fr)", md: "repeat(3, 1fr)" }}
           gap={4}
         >
           {filterProjects.map((item) => {
             return (
-              <GridItem colSpan={item.colspan}>
+              <GridItem colSpan={{ sm: "1", md: item.colspan }}>
                 <Link to={item.path}>
                   <Card
                     title={item.title}

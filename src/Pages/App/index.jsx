@@ -11,7 +11,7 @@ import ScrollToTop from "../../Components/ScrollToTop";
 
 const App = () => {
   return (
-    <div style={{ backgroundColor: "#fafafa " }}>
+    <div>
       <Navbar />
       <ScrollToTop>
         <Routes>

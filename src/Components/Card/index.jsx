@@ -5,10 +5,7 @@ import { BsArrowRightShort } from "react-icons/bs";
 import { tags_ } from "../../utils/tags";
 
 const THEME = {
-  base: {
-    backgroundColor: "#fff",
-    color: "#000",
-  },
+  base: {},
   first: {
     backgroundColor: "#4158D0",
     backgroundImage:
@@ -39,8 +36,6 @@ const Card = ({ title, description, theme, link, tags }) => {
         base: "5",
         lg: "6",
       }}
-      border="1px solid"
-      borderColor="var(--chakra-colors-chakra-border-color)"
       w="100%"
       borderRadius="16px"
       height="300px"
@@ -48,14 +43,10 @@ const Card = ({ title, description, theme, link, tags }) => {
       alignItems="flex-start"
       justifyContent="end"
       flexDirection="column"
-      style={THEME[theme]}
+      border="1px solid"
+      borderColor="var(--chakra-colors-chakra-border-color)"
     >
-      <Heading
-        as="h3"
-        fontSize="25px"
-        fontWeight="regular"
-        style={THEME[theme]}
-      >
+      <Heading as="h3" fontSize="25px" fontWeight="regular">
         {title}
       </Heading>
       <Flex gap="5px">
@@ -67,14 +58,7 @@ const Card = ({ title, description, theme, link, tags }) => {
           );
         })}
       </Flex>
-      <Text
-        as="p"
-        fontSize="16px"
-        maxW="500px"
-        mt="10px"
-        style={THEME[theme]}
-        opacity={0.5}
-      >
+      <Text as="p" fontSize="16px" maxW="500px" mt="10px" opacity={0.8}>
         {description.substring(0, 100) + `...`}
       </Text>
       <Link to={link}>
@@ -82,7 +66,6 @@ const Card = ({ title, description, theme, link, tags }) => {
           mt="10px"
           alignItems="center"
           rightIcon={<BsArrowRightShort size={20} />}
-          style={THEME[theme]}
           variant="link"
         >
           Learn more

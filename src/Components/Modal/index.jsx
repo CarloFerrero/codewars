@@ -15,12 +15,7 @@ const ModalComponent = ({ header, body, action, openButton }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Button
-        type="submit"
-        backgroundColor="black"
-        color="white"
-        onClick={onOpen}
-      >
+      <Button type="submit" onClick={onOpen}>
         {openButton}
       </Button>
 
@@ -33,7 +28,7 @@ const ModalComponent = ({ header, body, action, openButton }) => {
             <Text fontSize="30px">{body}</Text>
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
+            <Button mr={3} onClick={onClose}>
               {action}
             </Button>
           </ModalFooter>

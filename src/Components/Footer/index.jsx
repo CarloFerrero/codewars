@@ -14,7 +14,6 @@ const Footer = () => (
     }}
     borderTop="1px solid"
     borderColor="var(--chakra-colors-chakra-border-color)"
-    backgroundColor="#fff"
   >
     <Stack spacing={{ base: "4", md: "5" }}>
       <Stack justify="space-between" direction="row" align="center">

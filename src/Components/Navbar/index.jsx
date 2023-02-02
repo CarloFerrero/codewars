@@ -5,8 +5,9 @@ import {
   useBreakpointValue,
   Text,
 } from "@chakra-ui/react";
-import { FiMoon, FiMenu } from "react-icons/fi";
+import { FiMenu } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import ColorMode from "../ColorMode";
 
 const Navbar = () => {
   const isDesktop = useBreakpointValue({
@@ -14,8 +15,13 @@ const Navbar = () => {
     lg: true,
   });
   return (
-    <Box as="section" backgroundColor="#fff">
-      <Box as="nav" bg="bg-surface" boxShadow="sm">
+    <Box as="section">
+      <Box
+        as="nav"
+        bg="bg-surface"
+        borderBottom="1px solid"
+        borderColor="var(--chakra-colors-chakra-border-color)"
+      >
         <Box
           py={{
             base: "4",
@@ -34,11 +40,7 @@ const Navbar = () => {
             </Box>
             {isDesktop ? (
               <HStack spacing="3">
-                <IconButton
-                  variant="ghost"
-                  icon={<FiMoon fontSize="1.25rem" />}
-                  aria-label="Open Menu"
-                />
+                <ColorMode />
               </HStack>
             ) : (
               <IconButton

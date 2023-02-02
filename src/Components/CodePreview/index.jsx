@@ -1,20 +1,27 @@
 import React from "react";
 import Highlight, { defaultProps } from "prism-react-renderer";
-import { Box, Flex, Text, IconButton } from "@chakra-ui/react";
+import { Box, Flex, Text, IconButton, useColorMode } from "@chakra-ui/react";
 import { BiCopy } from "react-icons/bi";
-import "./style.css";
 import github from "prism-react-renderer/themes/github";
+import vsLight from "prism-react-renderer/themes/vsDark";
+
+import "./style.css";
 
 const CodePreview = ({ code, language }) => {
+  const { colorMode } = useColorMode();
   return (
-    <Box border="2px solid" borderColor="rgba(217,217,227)" borderRadius="20px">
+    <Box
+      border="1px solid"
+      borderColor="var(--chakra-colors-chakra-border-color)"
+      borderRadius="20px"
+    >
       <Flex
         justifyContent="space-between"
-        backgroundColor="rgba(217,217,227)"
         padding="10px 20px"
-        color="#000"
         borderRadius="16px 16px 0px 0px"
         alignItems="center"
+        borderBottom="1px solid"
+        borderColor="var(--chakra-colors-chakra-border-color)"
       >
         <Text>{language}</Text>
         <Text>
@@ -25,7 +32,12 @@ const CodePreview = ({ code, language }) => {
           />
         </Text>
       </Flex>
-      <Highlight {...defaultProps} code={code} language="jsx" theme={github}>
+      <Highlight
+        {...defaultProps}
+        code={code}
+        language="jsx"
+        theme={colorMode === "light" ? github : vsLight}
+      >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre className={className} style={style}>
             {tokens.map((line, i) => (
