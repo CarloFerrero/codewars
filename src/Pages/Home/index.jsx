@@ -1,5 +1,5 @@
 import { Box, Container, Grid, GridItem } from "@chakra-ui/layout";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../../Components/Card";
 import { PROJECTS } from "../../PROJECTS";
 import Hero from "../../Components/Hero";
@@ -7,37 +7,37 @@ import { Link } from "react-router-dom";
 import Filter from "../../Components/Filter/Filter";
 
 const Homepage = () => {
+  const [search, setSearch] = useState("");
+  const [tag, setTag] = useState();
+  const [filterProjects, setFilterProjects] = useState(PROJECTS);
+
+  useEffect(() => {
+    const filterBySearch = PROJECTS.filter((project) =>
+      project.title.includes(search)
+    );
+    const filterByTag = PROJECTS.filter((project) =>
+      project.tags.includes(tag)
+    );
+    const filteredItem = filterBySearch.concat(filterByTag);
+    setFilterProjects(filteredItem);
+  }, [search, tag]);
+
   return (
     <Box>
       <Hero
         title="This is a website where i store all of my
           small project, mostly logic, and coding challenges."
       />
-      <Filter />
+      <Filter setSearch={setSearch} setTag={setTag} />
       <Container maxW="1200px">
-        <Link to={PROJECTS[0].path}>
-          <Card
-            title={PROJECTS[0].title}
-            description={PROJECTS[0].description}
-            theme={PROJECTS[0].theme}
-            link={PROJECTS[0].path}
-            tags={PROJECTS[0].tags}
-          />
-        </Link>
         <Grid
-          gridTemplateColumns={{
-            base: "1fr",
-            sm: "1fr",
-            md: "1fr 1fr",
-            lg: "1fr 1fr 1fr",
-          }}
-          gridTemplateRows="auto"
-          gap="20px"
-          mt="20px"
+          templateRows="repeat(3, 1fr)"
+          templateColumns="repeat(3, 1fr)"
+          gap={4}
         >
-          {PROJECTS.filter((_, index) => index !== 0).map((item) => {
+          {filterProjects.map((item) => {
             return (
-              <GridItem>
+              <GridItem colSpan={item.colspan}>
                 <Link to={item.path}>
                   <Card
                     title={item.title}

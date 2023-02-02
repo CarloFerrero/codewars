@@ -7,4 +7,12 @@ export const tags_ = {
     name: "algorithms",
     color: "red",
   },
+  react: {
+    name: "react",
+    color: "blue",
+  },
+  fb: {
+    name: "firebase",
+    color: "orange",
+  },
 };

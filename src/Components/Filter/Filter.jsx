@@ -3,13 +3,13 @@ import { HStack, Container, Select, Box, Button } from "@chakra-ui/react";
 import { RepeatIcon } from "@chakra-ui/icons";
 import SearcBar from "../SearchBar";
 
-const Filter = (props) => {
+const Filter = ({ setSearch, setTag }) => {
   const callBackFunc = (option) => {
-    console.log(option);
+    setTag(option);
   };
 
-  function handleChange() {
-    console.log("change");
+  function handleChange(e) {
+    setSearch(e.target.value);
   }
 
   return (
@@ -34,8 +34,9 @@ const Filter = (props) => {
           <Box alignItems="center" width="100%">
             <Select onChange={(e) => callBackFunc(e.target.value)}>
               <option>Tags</option>
-              <option>Javascript</option>
-              <option>Algoritmh</option>
+              <option>js</option>
+              <option>alg</option>
+              <option>react</option>
             </Select>
           </Box>
           <Button variant="outline" onClick={() => callBackFunc("Refresh")}>
