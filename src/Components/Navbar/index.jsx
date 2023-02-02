@@ -43,11 +43,7 @@ const Navbar = () => {
                 <ColorMode />
               </HStack>
             ) : (
-              <IconButton
-                variant="ghost"
-                icon={<FiMenu fontSize="1.25rem" />}
-                aria-label="Open Menu"
-              />
+              <ColorMode />
             )}
           </HStack>
         </Box>
